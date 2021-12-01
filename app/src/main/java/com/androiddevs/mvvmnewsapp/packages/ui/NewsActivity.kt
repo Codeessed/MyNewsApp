@@ -19,7 +19,7 @@ class NewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news)
         val newsRepository = NewsRepository(ArticleDatabase(this))
-        val newsViewModelProvider = NewsViewModelFactory(newsRepository)
+        val newsViewModelProvider = NewsViewModelFactory(application, newsRepository)
         viewModel = ViewModelProvider(this, newsViewModelProvider).get(NewsViewModel::class.java)
 
         //set up bottom navigation with fragments
